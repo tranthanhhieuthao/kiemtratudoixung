@@ -8,13 +8,16 @@
 <input type="button" value="Nhập từ và check" onclick="nhapphantu()"/>
 <script>
     function hamDoiXung(Array,number) {
-        if (Array[0] !== Array[Array.length-1]) return false
-        else return (Array[number]==Array[Array.length-number-1]);
+        if (Math.floor(Array.length/2)==number) return "true";
+        else if (Array[number] !== Array[Array.length-number-1]) return "false";
+        else return hamDoiXung(Array,number+1);
   }
   function nhapphantu() {
       let nhaptu = prompt("Nhập phần tử mảng");
-      let ketqua=hamDoiXung(nhaptu);
-      alert(ketqua);
+      let ketqua=hamDoiXung(nhaptu,0);
+      if (ketqua) {
+          alert(ketqua);
+      }
   }
 
 </script>
